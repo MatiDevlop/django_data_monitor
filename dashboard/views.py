@@ -11,7 +11,7 @@ def format_spanish_ampm(dt):
 
 # Create your views here.
 def index(request):
-    response = requests.get(settings.API_URL)  # URL de la API
+    response = requests.get(settings.API_URL)  # URL de la API 'https://matiasdeveloper.pythonanywhere.com/landing/api/index/?format=json'
     posts = response.json()  # Convertir la respuesta a JSON
 
     # Número total de respuestas

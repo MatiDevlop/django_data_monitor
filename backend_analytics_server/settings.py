@@ -124,7 +124,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ]
 
-API_URL = 'http://matiasdeveloper.pythonanywhere.com/landing/api/index/?format=json'
+API_URL = 'https://matiasdeveloper.pythonanywhere.com/landing/api/index/?format=json'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
