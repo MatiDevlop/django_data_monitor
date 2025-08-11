@@ -1,6 +1,6 @@
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-import json
 import requests
 from django.conf import settings
 
@@ -10,6 +10,7 @@ def format_spanish_ampm(dt):
     return dt.strftime(f"%d/%m/%Y, {hour_12}:%M:%S {ampm}")
 
 # Create your views here.
+@login_required
 def index(request):
     response = requests.get(settings.API_URL)  # URL de la API 'https://matiasdeveloper.pythonanywhere.com/landing/api/index/?format=json'
     posts = response.json()  # Convertir la respuesta a JSON
