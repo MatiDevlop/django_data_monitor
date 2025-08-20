@@ -32,12 +32,14 @@ LOGIN_REDIRECT_URL = '/'
 SECRET_KEY = 'django-insecure-_qv(6w31$(clb0a6dqf)f_ro-*#m^=tfkct8h=y7g2oj=1&^hd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.up.railway.app",
+    "http://127.0.0.1:8000",
+]
 
 # Application definition
 
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -135,6 +138,10 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ]
+
+STATIC_ROOT = BASE_DIR / 'assets'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 API_URL = 'https://matiasdeveloper.pythonanywhere.com/landing/api/index/?format=json'
 
